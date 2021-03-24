@@ -2,6 +2,13 @@ setwd("~/ML Mini Project/MLPROJECT")
 Data1 <-  read.csv(file = "Vehiclecoupondata.csv",na.strings=c("","NA")) # Replacing the empty strings in the file with NA
 Data1$age <- as.integer(Data1$age)
 Data1$temperature <- as.character(Data1$temperature)
+Data1$toCoupon_GEQ5min <- as.character(Data1$toCoupon_GEQ5min)
+Data1$toCoupon_GEQ15min <- as.character(Data1$toCoupon_GEQ15min)
+Data1$toCoupon_GEQ25min <- as.character(Data1$toCoupon_GEQ25min)
+Data1$direction_same <- as.character(Data1$direction_same)
+Data1$direction_opp <- as.character(Data1$direction_opp )
+Data1$Y <- as.character(Data1$Y)
+Data1$childrennumber <- as.character(Data1$childrennumber)
 
 # categorizing the age
 Dataformat <- function(Data){
@@ -40,7 +47,7 @@ Dataformat <- function(Data){
 Data1$age <- Dataformat(Data1$age)
 Data1 <-  data.frame(Data1)
 Data1 <- na.omit(Data1)
-
+str(Data1)
 # Categorizing the data according to the coupon
 Data_coffee <- Data1[Data1$coupon == "Coffee House",]
 Data_bar <- Data1[Data1$coupon == "Bar",]
